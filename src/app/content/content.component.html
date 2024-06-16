@@ -15,14 +15,14 @@
     </div>
     <div class="d-flex">
         <div class="mb-1"><span class="fw-bold fs-6">Applied Filters: </span></div>
-        <div class="d-flex mx-2">
+        <div class="d-flex mx-2 overflow-auto">
             <ng-container *ngFor="let chip of filterChips">
                 <app-filter-chips [chip]="chip" class="me-1"
                     (chipRemoverEmitter)="removeChip($event)"></app-filter-chips>
             </ng-container>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 justify-content-center">
         <div class="col col-4 card" style="width: 18rem; height: 350px">
             <div class="card-body">
                 <h5 class="card-title fw-bold fs-5">Categories</h5>
@@ -32,12 +32,12 @@
             </div>
         </div>
         <div class="col">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between my-2">
                 <div><span class="fw-bold text-primary">{{catelogData.length}} Results Found</span></div>
                 <div><button class="btn btn-danger btn-sm" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight">Sort</button></div>
             </div>
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap justify-content-center">
                 <ng-container *ngFor="let data of catelogData">
                     <app-item-card class="me-3 mb-3" [data]="data"></app-item-card>
                 </ng-container>
