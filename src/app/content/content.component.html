@@ -26,9 +26,9 @@
         <div class="col col-4 card" style="width: 18rem; height: 350px">
             <div class="card-body">
                 <h5 class="card-title fw-bold fs-5">Categories</h5>
-                <div class="container mt-5">
-
-                </div>
+                <ng-container *ngFor="let category of categories">
+                    <app-category-filter [category]="category"></app-category-filter>
+                </ng-container>
             </div>
         </div>
         <div class="col">
@@ -49,17 +49,20 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header d-flex justify-content-between">
         <label class="fw-bold">Filter By</label>
-        <button type="button" class="btn btn-link text-decoration-none btn-bg-red" (click)="resetAll()">Reset All</button>
+        <button type="button" class="btn btn-link text-decoration-none btn-bg-red" (click)="resetAll()">Reset
+            All</button>
     </div>
     <hr class="mx-3">
     <div class="offcanvas-body d-flex flex-column">
         <div class="d-flex flex-column">
             <label class="fw-bold">Sort</label>
             <div class="btn-group gap-2 sort-btn-width" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnSort" id="aToZ" autocomplete="off" [checked]="sortOrder==='asc'" [(ngModel)]="sortOrder" value="asc">
+                <input type="radio" class="btn-check" name="btnSort" id="aToZ" autocomplete="off"
+                    [checked]="sortOrder==='asc'" [(ngModel)]="sortOrder" value="asc">
                 <label class="btn btn-outline-danger" for="aToZ">A - Z</label>
 
-                <input type="radio" class="btn-check" name="btnSort" id="zToA" autocomplete="off" [checked]="sortOrder==='desc'" [(ngModel)]="sortOrder" value="desc">
+                <input type="radio" class="btn-check" name="btnSort" id="zToA" autocomplete="off"
+                    [checked]="sortOrder==='desc'" [(ngModel)]="sortOrder" value="desc">
                 <label class="btn btn-outline-danger" for="zToA">Z - A</label>
             </div>
         </div>

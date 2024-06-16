@@ -3,6 +3,7 @@ import { FilterChip } from '../commons/components/filter-chips/filter-chips.comp
 import { data } from '../content/data';
 import { CatelogData } from '../commons/components/item-card/item-card.component';
 import { debounceTime, distinctUntilChanged, switchMap, Observable, of, Subject } from 'rxjs';
+import { CategoryFilter } from '../commons/components/category-filter/category-filter.component';
 
 const ASC = 'asc';
 
@@ -19,6 +20,8 @@ export class ContentComponent implements OnInit {
     { id: 3, categoryName: 'evergreen', label: 'Evergreen' },
   ]
 
+  categories: CategoryFilter[] = [{ categoryName: 'e-Voucher', checkboxState: true }, { categoryName: 'Products' },
+  { categoryName: 'Evergreen' }, { categoryName: 'Fashion & Retails' }]
   catelogData: CatelogData[] = data;
   sortOrder = ASC;
   searchTerms = new Subject<string>();
