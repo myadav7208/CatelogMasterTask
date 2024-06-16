@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ItemCardComponent } from './components/item-card/item-card.component';
 import { FilterChipsComponent } from './components/filter-chips/filter-chips.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,9 @@ import { FilterChipsComponent } from './components/filter-chips/filter-chips.com
   exports: [
     HeaderComponent,
     FooterComponent,
-    FilterChipsComponent
+    FilterChipsComponent,
+    ItemCardComponent,
+    FormsModule
   ]
 })
 export class CommonsModule { }

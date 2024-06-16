@@ -9,20 +9,62 @@
                     <i class="bi bi-search"></i>
                 </span>
             </div>
-            <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
-                aria-describedby="search-icon">
+            <input type="text" class="form-control" placeholder="Search Reward Name..." aria-label="Search"
+                aria-describedby="search-icon" (input)="onSearch($event)">
         </div>
     </div>
     <div class="d-flex">
         <div class="mb-1"><span class="fw-bold fs-6">Applied Filters: </span></div>
         <div class="d-flex mx-2">
             <ng-container *ngFor="let chip of filterChips">
-                <app-filter-chips [chip]="chip" class="me-1" (chipRemoverEmitter)="removeChip($event)"></app-filter-chips>
+                <app-filter-chips [chip]="chip" class="me-1"
+                    (chipRemoverEmitter)="removeChip($event)"></app-filter-chips>
             </ng-container>
         </div>
     </div>
-    <div class="row">
-        <div class="col col-4">hiiii</div>
-        <div class="col col-8">byee</div>
+    <div class="row mt-3">
+        <div class="col col-4 card" style="width: 18rem; height: 350px">
+            <div class="card-body">
+                <h5 class="card-title fw-bold fs-5">Categories</h5>
+                <div class="container mt-5">
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex justify-content-between">
+                <div><span class="fw-bold text-primary">{{catelogData.length}} Results Found</span></div>
+                <div><button class="btn btn-danger btn-sm" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight">Sort</button></div>
+            </div>
+            <div class="d-flex flex-wrap">
+                <ng-container *ngFor="let data of catelogData">
+                    <app-item-card class="me-3 mb-3" [data]="data"></app-item-card>
+                </ng-container>
+            </div>
+        </div>
     </div>
 </main>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header d-flex justify-content-between">
+        <label class="fw-bold">Filter By</label>
+        <button type="button" class="btn btn-link text-decoration-none btn-bg-red" (click)="resetAll()">Reset All</button>
+    </div>
+    <hr class="mx-3">
+    <div class="offcanvas-body d-flex flex-column">
+        <div class="d-flex flex-column">
+            <label class="fw-bold">Sort</label>
+            <div class="btn-group gap-2 sort-btn-width" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnSort" id="aToZ" autocomplete="off" [checked]="sortOrder==='asc'" [(ngModel)]="sortOrder" value="asc">
+                <label class="btn btn-outline-danger" for="aToZ">A - Z</label>
+
+                <input type="radio" class="btn-check" name="btnSort" id="zToA" autocomplete="off" [checked]="sortOrder==='desc'" [(ngModel)]="sortOrder" value="desc">
+                <label class="btn btn-outline-danger" for="zToA">Z - A</label>
+            </div>
+        </div>
+        <div class="mt-auto">
+            <button class="btn btn-danger w-100" (click)="sortCatelog()">Apply</button>
+        </div>
+    </div>
+</div>
