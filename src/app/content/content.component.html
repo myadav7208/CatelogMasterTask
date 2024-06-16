@@ -1,0 +1,28 @@
+<main class="container my-4">
+    <div class="mb-1">
+        <span class="fw-bold fs-4">Search</span>
+    </div>
+    <div class="mb-3">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="search-icon">
+                    <i class="bi bi-search"></i>
+                </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
+                aria-describedby="search-icon">
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="mb-1"><span class="fw-bold fs-6">Applied Filters: </span></div>
+        <div class="d-flex mx-2">
+            <ng-container *ngFor="let chip of filterChips">
+                <app-filter-chips [chip]="chip" class="me-1" (chipRemoverEmitter)="removeChip($event)"></app-filter-chips>
+            </ng-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-4">hiiii</div>
+        <div class="col col-8">byee</div>
+    </div>
+</main>

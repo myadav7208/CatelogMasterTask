@@ -1,0 +1,13 @@
+.pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color: #D3D3D3;
+    font-size: 12px;
+}
+
+.pill .bi-x {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
